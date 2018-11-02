@@ -1,0 +1,15 @@
+
+service: aws-node-api-gateway-poc # NOTE: update this with your service name
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+  restApi:
+    handler: apiHandler.demoApi
+    events: 
+     - http: ANY /
+     - http: 'ANY {proxy+}'
+
+
